@@ -2,9 +2,9 @@
 The frontend for the house rental website built by CSE210 Group16.
 
 ### Tech Stack
-UI framework: React
-Component library: Ant Design
-Router: React-router
+UI framework: React\
+Component library: Ant Design\
+Router: React-router\
 Deployment: tbd
 
 
