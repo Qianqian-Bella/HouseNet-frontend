@@ -7,6 +7,15 @@ Component library: Ant Design\
 Router: React-router\
 Deployment: tbd
 
+### Structure
+-src
+ - components: for reusable components for the whole app
+ - pages: for separate pages
+   - landing
+   - sign in / sign up
+   - search
+ - static: for static files like images
+ - utils: for reusable functions for the whole app
 
 ### How to run
 `npm install`
