@@ -1,91 +1,94 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import { Menu, Row, Col } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
-export default class Header extends React.Component {
-  //   static propTypes = {
-  //     isFirstScreen: PropTypes.bool,
-  //     isMoblie: PropTypes.bool,
-  //   };
+const Header = () => {
+  return (
+    <header
+      id="header"
+      style={{ color: "white", backgroundColor: "rgba(105, 185, 157, 0.8)" }}
+    >
+      <Row>
+        {/* app icon and name */}
+        <Col span={8}>
+          <div
+            id="icon-name"
+            style={{
+              color: "white",
+              fontSize: "18px",
+              backgroundColor: "transparent",
+              padding: "14px 10px",
+              textAlign: "center",
+            }}
+          >
+            <HomeOutlined />
+            &nbsp;&nbsp;
+            <span key="app-name">
+              <b>HouseNet</b>
+            </span>
+          </div>
+        </Col>
 
-  render() {
-    return (
-      <header
-        id="header"
-        className="header"
-        style={{ color: "white", backgroundColor: "rgba(105, 185, 157, 0.8)" }}
-      >
-        <Row>
-          <Col span={8}>
-            <div
-              style={{
-                color: "white",
-                fontSize: "18px",
-                backgroundColor: "transparent",
-                padding: "16px 10px",
-              }}
-            >
-              <HomeOutlined />
-              &nbsp;&nbsp;
-              <span key="app-name">
-                <b>HouseNet</b>
-              </span>
-            </div>
-          </Col>
-
-          <Col span={12}>
-            <Menu
-              id="nav"
-              key="nav"
-              mode="horizontal"
-              style={{
-                color: "white",
-                fontSize: "16px",
-                backgroundColor: "transparent",
-                height: "100%",
-              }}
-            >
-              <Menu.Item key="home">
+        {/* navigation */}
+        <Col span={12}>
+          <Menu
+            id="nav"
+            mode="horizontal"
+            style={{
+              color: "white",
+              fontSize: "16px",
+              backgroundColor: "transparent",
+              height: "100%",
+            }}
+          >
+            <Menu.Item key="home">
+              <Link to="/">
                 <b>Home</b>
-              </Menu.Item>
-              <Menu.Item key="search">
-                <b>Search A Rental</b>
-              </Menu.Item>
-              <Menu.Item key="wishlists">
-                <b>My Wishlists</b>
-              </Menu.Item>
-              <Menu.Item key="chathub">
-                <b>Chathub</b>
-              </Menu.Item>
-              <Menu.Item key="contact">
-                <b>Contact</b>
-              </Menu.Item>
-            </Menu>
-          </Col>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="search">
+              <b>Search A Rental</b>
+            </Menu.Item>
+            <Menu.Item key="wishlists">
+              <b>My Wishlists</b>
+            </Menu.Item>
+            <Menu.Item key="chathub">
+              <b>Chathub</b>
+            </Menu.Item>
+            <Menu.Item key="contact">
+              <b>Contact</b>
+            </Menu.Item>
+          </Menu>
+        </Col>
 
-          <Col span={4}>
-            <Menu
-              id="sign"
-              key="sign"
-              mode="horizontal"
-              style={{
-                color: "white",
-                fontSize: "16px",
-                backgroundColor: "transparent",
-                height: "100%",
-              }}
-            >
-              <Menu.Item key="sign-in">
-                <b>Sign In</b>{" "}
-              </Menu.Item>
-              <Menu.Item key="sign-up">
+        {/* Signin/signup */}
+        <Col span={4}>
+          <Menu
+            id="sign"
+            key="sign"
+            mode="horizontal"
+            style={{
+              color: "white",
+              fontSize: "16px",
+              backgroundColor: "transparent",
+              height: "100%",
+            }}
+          >
+            <Menu.Item key="sign-in">
+              <b>Sign In</b>{" "}
+            </Menu.Item>
+            {/* onClick={onSignup} */}
+            <Menu.Item key="sign-up">
+              <Link to="/sign-up">
                 <b>Sign Up </b>
-              </Menu.Item>
-            </Menu>
-          </Col>
-        </Row>
-      </header>
-    );
-  }
-}
+              </Link>
+            </Menu.Item>
+          </Menu>
+        </Col>
+      </Row>
+    </header>
+  );
+};
+
+export default Header;

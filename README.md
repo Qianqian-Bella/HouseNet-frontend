@@ -5,6 +5,7 @@ The frontend for the house rental website built by CSE210 Group16.
 UI framework: React\
 Component library: Ant Design\
 Router: React-router\
+HTTP request: axios\
 Deployment: tbd
 
 ### Structure
