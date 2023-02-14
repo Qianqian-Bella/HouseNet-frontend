@@ -3,38 +3,11 @@ import React from "react";
 import { Menu, Row, Col } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 
-const searchEngine = "Google";
-
 export default class Header extends React.Component {
   //   static propTypes = {
   //     isFirstScreen: PropTypes.bool,
   //     isMoblie: PropTypes.bool,
   //   };
-
-  onMenuVisibleChange = (visible) => {
-    this.setState({
-      menuVisible: visible,
-    });
-  };
-  handleShowMenu = () => {
-    this.setState({
-      menuVisible: true,
-    });
-  };
-
-  handleHideMenu = () => {
-    this.setState({
-      menuVisible: false,
-    });
-  };
-
-  handleSelectFilter = (value, option) => {
-    const optionValue = option.props["data-label"];
-    return (
-      optionValue === searchEngine ||
-      optionValue.indexOf(value.toLowerCase()) > -1
-    );
-  };
 
   render() {
     return (
