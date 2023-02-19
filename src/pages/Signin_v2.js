@@ -1,29 +1,34 @@
-import Login from 'ant-design-pro/lib/Login';
-import { Alert, Checkbox } from 'antd';
+import React from "react";
+import Login from "ant-design-pro/lib/Login";
+import { Alert, Checkbox } from "antd";
 
 const { Tab, UserName, Password, Mobile, Captcha, Submit } = Login;
 
 class LoginDemo extends React.Component {
   state = {
-    notice: '',
-    type: 'tab2',
+    notice: "",
+    type: "tab2",
     autoLogin: true,
   };
   onSubmit = (err, values) => {
-    console.log('value collected ->', {
+    console.log("value collected ->", {
       ...values,
       autoLogin: this.state.autoLogin,
     });
-    if (this.state.type === 'tab1') {
+    if (this.state.type === "tab1") {
       this.setState(
         {
-          notice: '',
+          notice: "",
         },
         () => {
-          if (!err && (values.username !== 'admin' || values.password !== '888888')) {
+          if (
+            !err &&
+            (values.username !== "admin" || values.password !== "888888")
+          ) {
             setTimeout(() => {
               this.setState({
-                notice: 'The combination of username and password is incorrect!',
+                notice:
+                  "The combination of username and password is incorrect!",
               });
             }, 500);
           }
@@ -31,12 +36,12 @@ class LoginDemo extends React.Component {
       );
     }
   };
-  onTabChange = key => {
+  onTabChange = (key) => {
     this.setState({
       type: key,
     });
   };
-  changeAutoLogin = e => {
+  changeAutoLogin = (e) => {
     this.setState({
       autoLogin: e.target.checked,
     });
@@ -64,13 +69,19 @@ class LoginDemo extends React.Component {
           </Tab>
           <Tab key="tab2" tab="Mobile">
             <Mobile name="mobile" />
-            <Captcha onGetCaptcha={() => console.log('Get captcha!')} name="captcha" />
+            <Captcha
+              onGetCaptcha={() => console.log("Get captcha!")}
+              name="captcha"
+            />
           </Tab>
           <div>
-            <Checkbox checked={this.state.autoLogin} onChange={this.changeAutoLogin}>
+            <Checkbox
+              checked={this.state.autoLogin}
+              onChange={this.changeAutoLogin}
+            >
               Keep me logged in
             </Checkbox>
-            <a style={{ float: 'right' }} href="">
+            <a style={{ float: "right" }} href="">
               Forgot password
             </a>
           </div>
@@ -80,7 +91,7 @@ class LoginDemo extends React.Component {
             <span className="icon icon-alipay" />
             <span className="icon icon-taobao" />
             <span className="icon icon-weibo" />
-            <a style={{ float: 'right' }} href="">
+            <a style={{ float: "right" }} href="">
               Register
             </a>
           </div>
@@ -90,4 +101,6 @@ class LoginDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<LoginDemo />, mountNode);
+export default LoginDemo;
+
+// ReactDOM.render(<LoginDemo />, mountNode);

@@ -9,21 +9,21 @@ const Signin = () => {
 
 
   const onFinish = (values) => {
-    setLoading(true);
+    setLoading(true)
     // Perform registration logic here, e.g. API call to backend
     axios
       .post("/api/register", values)
       .then(() => {
         message.success("Registration successful!");
-        setLoading(false);
+        setLoading(false)
         // history.push("/");
       })
       .catch((error) => {
         message.error("Registration failed. Please try again.");
         setLoading(false);
         console.error(error);
-      });
-  };
+      })
+  }
 
   return (
     <div className="signin">
@@ -65,6 +65,6 @@ const Signin = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Signin;
