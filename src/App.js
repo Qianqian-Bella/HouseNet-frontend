@@ -6,7 +6,6 @@ import "./App.css";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
-import LoginDemo from "./pages/Signin_v2";
 
 const App = () => (
   <div
@@ -21,7 +20,7 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="sign-up" element={<Signup />} />
-        <Route path="sign-in" element={<LoginDemo />} />
+        <Route path="sign-in" element={<Signin />} />
       </Routes>
     </BrowserRouter>
   </div>
