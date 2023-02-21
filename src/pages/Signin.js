@@ -65,10 +65,10 @@ class Signin extends Component {
     return (
       <div className="signin">
         <div
-          className="signin-form"
+          className="login-form"
           style={{ maxWidth: 400, margin: "auto", marginTop: 100 }}
         >
-          <h1>Sign in an account</h1>
+          <h1>Sign in</h1>
           <Form layout="vertical" onFinish={this.onFinish}>
             <Form.Item
               label="Username"

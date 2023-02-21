@@ -11,7 +11,7 @@ const Header = () => {
     >
       <Row>
         {/* app icon and name */}
-        <Col span={8}>
+        <Col span={6}>
           <div
             id="icon-name"
             style={{
@@ -65,7 +65,7 @@ const Header = () => {
         </Col>
 
         {/* Signin/signup */}
-        <Col span={4}>
+        <Col span={6}>
           <Menu
             id="sign"
             key="sign"
@@ -85,7 +85,12 @@ const Header = () => {
             {/* onClick={onSignup} */}
             <Menu.Item key="sign-up">
               <Link to="/sign-up">
-                <b>Sign Up </b>
+                <b>Sign Up </b>{" "}
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="logout">
+              <Link to="/logout">
+                <b>Log Out</b>
               </Link>
             </Menu.Item>
           </Menu>
