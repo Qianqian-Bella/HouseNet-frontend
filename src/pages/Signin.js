@@ -12,12 +12,14 @@ class Signin extends Component {
       loading: false,
       checked: false,
       disabled: false,
+      hasLoginFailed: false,
+      hasLoginSuccess: false,
     };
     this.label = `${this.state.checked ? "Remembered!" : "Remember me"}`;
     this.toggleDisable = this.toggleDisable.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.handleUsenameChange = this.handleUsenameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.onFinish = this.onFinish.bind(this);
   }
 
@@ -30,14 +32,20 @@ class Signin extends Component {
     this.setState({ checked: event.target.checked });
   }
 
-  handleUsenameChange(event) {
-    console.log("username = ", event.target.value);
-    this.setState({ username: event.target.value });
+  handleChange(event) {
+    console.log("current state = ", this.state);
+    this.setState({ [event.target.name]: event.target.value });
   }
-  handlePasswordChange(event) {
-    console.log("password = ", event.target.value);
-    this.setState({ password: event.target.value });
+
+  onClick() {
+    if (this.state.username === "brian" && this.state.password === "123456") {
+      this.setState({ hasLoginSuccess: true, hasLoginFailed: false });
+      this.props.navigate("/search"); // React v6 navigation
+    } else {
+      this.setState({ hasLoginFailed: true, hasLoginSuccess: false });
+    }
   }
+
   onFinish(values) {
     this.setState({ loading: true });
     axios
@@ -72,10 +80,10 @@ class Signin extends Component {
               ]}
             >
               <Input
-                name="userName"
+                name="username"
                 placeholder={this.state.username}
                 size="large"
-                onChange={this.handleUsenameChange}
+                onChange={this.handleChange}
               />
             </Form.Item>
 
@@ -84,14 +92,14 @@ class Signin extends Component {
               name="password"
               rules={[
                 { required: true, message: "Please input your password!" },
-                { min: 8, message: "Password must be at least 8 characters" },
+                { min: 6, message: "Password must be at least 8 characters" },
               ]}
             >
               <Input.Password
                 name="password"
                 placeholder={this.state.password}
                 size="large"
-                onChange={this.handlePasswordChange}
+                onChange={this.handleChange}
               />
 
               <Checkbox
@@ -122,9 +130,19 @@ class Signin extends Component {
                 htmlType="submit"
                 loading={this.state.loading}
                 size="large"
+                onClick={this.onClick}
               >
                 Sign in
               </Button>
+            </Form.Item>
+
+            <Form.Item name="messageBox" wrapperCol={{ offset: 4, span: 16 }}>
+              {this.state.hasLoginSuccess && (
+                <h1>Welcome, {this.state.username}</h1>
+              )}
+              {this.state.hasLoginFailed && (
+                <h1>Login Failed, Check your username and password</h1>
+              )}
             </Form.Item>
           </Form>
         </div>

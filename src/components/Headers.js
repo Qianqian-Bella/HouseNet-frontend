@@ -76,7 +76,9 @@ const Header = () => {
             }}
           >
             <Menu.Item key="sign-in">
-              <b>Sign In</b>{" "}
+              <Link to="/sign-in">
+                <b>Sign In</b>{" "}
+              </Link>
             </Menu.Item>
             {/* onClick={onSignup} */}
             <Menu.Item key="sign-up">

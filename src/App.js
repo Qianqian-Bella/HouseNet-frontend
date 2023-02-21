@@ -6,6 +6,11 @@ import "./App.css";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+import Search from "./pages/Search";
+import ErrorComponent from "./pages/Error";
+import withNavigation from "./components/WithNavigation";
+
+const LoginComponentWithNavigation = withNavigation(Signin);
 
 const App = () => (
   <div
@@ -19,8 +24,10 @@ const App = () => (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="sign-up" element={<Signup />} />
-        <Route path="sign-in" element={<Signin />} />
+        <Route path="/sign-up" element={<Signup />} />
+        <Route path="/sign-in" element={<LoginComponentWithNavigation />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="*" element={<ErrorComponent />} />
       </Routes>
     </BrowserRouter>
   </div>
