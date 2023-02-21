@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Form, Input, Button, message } from "antd";
-import Header from "../components/Headers";
 import axios from "axios";
 
 const Signup = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-
 
   const onFinish = (values) => {
     setLoading(true);
@@ -27,7 +25,6 @@ const Signup = () => {
 
   return (
     <div className="signup">
-      <Header />
       <div
         className="signup-form"
         style={{ maxWidth: 400, margin: "auto", marginTop: 100 }}

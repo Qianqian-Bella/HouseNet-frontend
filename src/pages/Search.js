@@ -1,12 +1,14 @@
 import React from "react";
-import Header from "../components/Headers";
-const Search = () => {
-  return (
-    <div>
-      <Header />
-      This is the search page.
-    </div>
-  );
-};
+import { Component } from "react";
 
-export default Search;
+class SearchComponent extends Component {
+  render() {
+    return (
+      <div>
+        <h1>This is the search page for {this.props.params.name}.</h1>
+      </div>
+    );
+  }
+}
+
+export default SearchComponent;

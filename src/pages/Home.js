@@ -1,12 +1,10 @@
 import React from "react";
-import Header from "../components/Headers";
 import { Form, Input, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
 const Home = () => {
   return (
     <div className="home">
-      <Header />
       <div
         style={{
           fontSize: "55px",

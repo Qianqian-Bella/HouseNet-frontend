@@ -48,7 +48,9 @@ const Header = () => {
               </Link>
             </Menu.Item>
             <Menu.Item key="search">
-              <b>Search A Rental</b>
+              <Link to="/search">
+                <b>Search A Rental</b>
+              </Link>
             </Menu.Item>
             <Menu.Item key="wishlists">
               <b>My Wishlists</b>

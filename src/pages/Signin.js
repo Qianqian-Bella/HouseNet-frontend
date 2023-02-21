@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Input, Button, message, Checkbox } from "antd";
-import Header from "../components/Headers";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Signin extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class Signin extends Component {
   onClick() {
     if (this.state.username === "brian" && this.state.password === "123456") {
       this.setState({ hasLoginSuccess: true, hasLoginFailed: false });
-      this.props.navigate("/search"); // React v6 navigation
+      this.props.navigate(`/search/${this.state.username}`); // React v6 navigation
     } else {
       this.setState({ hasLoginFailed: true, hasLoginSuccess: false });
     }
@@ -64,7 +64,6 @@ class Signin extends Component {
   render() {
     return (
       <div className="signin">
-        <Header />
         <div
           className="signin-form"
           style={{ maxWidth: 400, margin: "auto", marginTop: 100 }}
@@ -119,9 +118,9 @@ class Signin extends Component {
                 {!this.state.disabled ? "Disable" : "Enable"}
               </Button>
 
-              <a className="login-form-forgot" href="/sign-up">
+              <Link className="login-form-forgot" to="/sign-up">
                 Forgot password
-              </a>
+              </Link>
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
