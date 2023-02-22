@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Menu, Row, Col } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import Authentication from "./Authentication";
+import AuthenticationSessionStorageObject from "./Authentication";
 
 class Header extends Component {
   render() {
-    const isUserLogin = Authentication.isLogin();
+    const isUserLogin = AuthenticationSessionStorageObject.isLogin();
     console.log(`isUser logged in: ${isUserLogin}`);
     return (
       <header
@@ -72,7 +72,7 @@ class Header extends Component {
             </Menu>
           </Col>
 
-          {/* Signin/signup */}
+          {/* Signin/signup/logout */}
           <Col span={4}>
             <Menu
               id="sign"
@@ -102,7 +102,12 @@ class Header extends Component {
               )}
               {isUserLogin && (
                 <Menu.Item key="logout">
-                  <Link to="/logout" onClick={Authentication.logoutRemoveEntry}>
+                  <Link
+                    to="/logout"
+                    onClick={
+                      AuthenticationSessionStorageObject.logoutRemoveEntry
+                    }
+                  >
                     <b>Log Out</b>
                   </Link>
                 </Menu.Item>

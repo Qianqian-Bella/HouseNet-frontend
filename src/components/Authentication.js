@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 class AuthenticationSessionStorage extends Component {
   registerSuccessEntry(username, password) {
@@ -19,4 +19,5 @@ class AuthenticationSessionStorage extends Component {
   }
 }
 
-export default new AuthenticationSessionStorage();
+const AuthenticationSessionStorageObject = new AuthenticationSessionStorage();
+export default AuthenticationSessionStorageObject;

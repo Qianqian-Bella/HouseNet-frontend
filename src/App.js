@@ -12,7 +12,7 @@ import withNavigation from "./components/WithNavigation";
 import withParams from "./components/withParams";
 import Header from "./components/Headers";
 import Footer from "./components/Footer";
-
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import "./App.css";
 import "./bootstrap.css";
 
@@ -35,7 +35,14 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/sign-in" element={<LoginComponentWithNavigation />} />
-        <Route path="/search/:name" element={<SearchComponentWithParams />} />
+        <Route
+          path="/search/:name"
+          element={
+            <AuthenticatedRoute>
+              <SearchComponentWithParams />
+            </AuthenticatedRoute>
+          }
+        />
         <Route path="/logout" element={<LogoutComponent />} />
         <Route path="*" element={<ErrorComponent />} />
       </Routes>
