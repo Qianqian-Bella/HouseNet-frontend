@@ -43,7 +43,14 @@ const App = () => (
             </AuthenticatedRoute>
           }
         />
-        <Route path="/logout" element={<LogoutComponent />} />
+        <Route
+          path="/logout"
+          element={
+            <AuthenticatedRoute>
+              <LogoutComponent />
+            </AuthenticatedRoute>
+          }
+        />
         <Route path="*" element={<ErrorComponent />} />
       </Routes>
       <Footer />
