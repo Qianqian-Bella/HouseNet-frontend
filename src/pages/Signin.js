@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Input, Button, message, Checkbox } from "antd";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Authentication from "../components/Authentication";
 
 class Signin extends Component {
   constructor(props) {
@@ -40,6 +41,10 @@ class Signin extends Component {
   onClick() {
     if (this.state.username === "brian" && this.state.password === "123456") {
       this.setState({ hasLoginSuccess: true, hasLoginFailed: false });
+      Authentication.registerSuccessEntry(
+        this.state.username,
+        this.state.password
+      );
       this.props.navigate(`/search/${this.state.username}`); // React v6 navigation
     } else {
       this.setState({ hasLoginFailed: true, hasLoginSuccess: false });
@@ -137,10 +142,14 @@ class Signin extends Component {
 
             <Form.Item name="messageBox" wrapperCol={{ offset: 4, span: 16 }}>
               {this.state.hasLoginSuccess && (
-                <h1>Welcome, {this.state.username}</h1>
+                <div className="container">
+                  <h1>Welcome, {this.state.username}</h1>
+                </div>
               )}
               {this.state.hasLoginFailed && (
-                <h1>Login Failed, Check your username and password</h1>
+                <div className="alert alert-warning">
+                  Login Failed, Check your username and password
+                </div>
               )}
             </Form.Item>
           </Form>

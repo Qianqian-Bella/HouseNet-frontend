@@ -17,6 +17,7 @@ import "./App.css";
 import "./bootstrap.css";
 
 const LoginComponentWithNavigation = withNavigation(Signin);
+const HeaderComponentWithNavigation = withNavigation(Header);
 const SearchComponentWithParams = withParams(SearchComponent);
 
 const App = () => (
@@ -29,7 +30,7 @@ const App = () => (
     }}
   >
     <BrowserRouter>
-      <Header />
+      <HeaderComponentWithNavigation />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<Signup />} />
