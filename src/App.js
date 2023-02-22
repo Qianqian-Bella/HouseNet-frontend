@@ -5,7 +5,8 @@ import background from "./static/home_background.png";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
-import SearchComponent from "./pages/Search";
+// import SearchComponent from "./pages/Search";
+import GoogleApiWrapper from "./pages/Search";
 import ErrorComponent from "./pages/Error";
 import LogoutComponent from "./pages/Logout";
 import withNavigation from "./components/WithNavigation";
@@ -17,7 +18,8 @@ import "./App.css";
 import "./bootstrap.css";
 
 const LoginComponentWithNavigation = withNavigation(Signin);
-const SearchComponentWithParams = withParams(SearchComponent);
+// const SearchComponentWithParams = withParams(SearchComponent);
+const SearchComponentWithParams = withParams(GoogleApiWrapper);
 
 const App = () => (
   <div
@@ -34,7 +36,8 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/sign-in" element={<LoginComponentWithNavigation />} />
-        <Route path="/search/:name" element={<SearchComponentWithParams />} />
+        {/* <Route path="/search/:name" element={<SearchComponentWithParams />} /> */}
+        <Route path="/search" element={<SearchComponentWithParams />} />
         <Route path="/logout" element={<LogoutComponent />} />
         <Route path="*" element={<ErrorComponent />} />
       </Routes>
