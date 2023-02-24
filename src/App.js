@@ -13,7 +13,7 @@ import withNavigation from "./components/WithNavigation";
 import withParams from "./components/withParams";
 import Header from "./components/Headers";
 import Footer from "./components/Footer";
-
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import "./App.css";
 import "./bootstrap.css";
 
@@ -31,14 +31,28 @@ const App = () => (
     }}
   >
     <BrowserRouter>
-      <Header />
+      <HeaderComponentWithNavigation />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/sign-in" element={<LoginComponentWithNavigation />} />
-        {/* <Route path="/search/:name" element={<SearchComponentWithParams />} /> */}
+        {/* <Route
+          path="/search/:name"
+          element={
+            <AuthenticatedRoute>
+              <SearchComponentWithParams />
+            </AuthenticatedRoute>
+          }
+        /> */}
         <Route path="/search" element={<SearchComponentWithParams />} />
-        <Route path="/logout" element={<LogoutComponent />} />
+        <Route
+          path="/logout"
+          element={
+            <AuthenticatedRoute>
+              <LogoutComponent />
+            </AuthenticatedRoute>
+          }
+        />
         <Route path="*" element={<ErrorComponent />} />
       </Routes>
       <Footer />
