@@ -13,7 +13,7 @@ import withNavigation from "./components/WithNavigation";
 import withParams from "./components/withParams";
 import Header from "./components/Headers";
 import Footer from "./components/Footer";
-import AuthenticatedRoute from "./components/AuthenticatedRoute";
+
 import "./App.css";
 import "./bootstrap.css";
 
@@ -32,7 +32,7 @@ const App = () => (
     }}
   >
     <BrowserRouter>
-      <HeaderComponentWithNavigation />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<Signup />} />
