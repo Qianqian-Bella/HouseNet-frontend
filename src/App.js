@@ -5,7 +5,11 @@ import background from "./static/home_background.png";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+<<<<<<< Updated upstream
 import SearchComponent from "./pages/Search";
+=======
+import GoogleApiWrapper from "./pages/Search";
+>>>>>>> Stashed changes
 import ErrorComponent from "./pages/Error";
 import LogoutComponent from "./pages/Logout";
 import withNavigation from "./components/WithNavigation";
@@ -18,7 +22,11 @@ import "./bootstrap.css";
 
 const LoginComponentWithNavigation = withNavigation(Signin);
 const HeaderComponentWithNavigation = withNavigation(Header);
+<<<<<<< Updated upstream
 const SearchComponentWithParams = withParams(SearchComponent);
+=======
+const SearchComponentWithParams = withParams(GoogleApiWrapper);
+>>>>>>> Stashed changes
 
 const App = () => (
   <div
