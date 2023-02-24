@@ -20,6 +20,7 @@ import "./bootstrap.css";
 const LoginComponentWithNavigation = withNavigation(Signin);
 // const SearchComponentWithParams = withParams(SearchComponent);
 const SearchComponentWithParams = withParams(GoogleApiWrapper);
+const HeaderComponentWithNavigation = withNavigation(Header);
 
 const App = () => (
   <div
